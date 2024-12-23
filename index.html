@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>北京奥运城市发展促进会 - 2025新年贺卡</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="libs/modernizr-2.8.3.min.js"></script>
+    <script src="libs/jquery-1.12.0.min.js"></script>
+</head>
+<body>
+<div class="app-body">
+    <div id="musicSwitch" class="m-btn"></div>
+    <div class="ele loop2 random" style="width: 90px; left: -20px; top: 50px;"><img src="img/001.png"/></div>
+    <div class="ele loop2 random" style="width: 160px; right: -60px; top: -40px;"><img src="img/002.png"/></div>
+    <div class="ele loop2 random" style="width: 65px; right: 60px; top: 430px;"><img src="img/004.png"/></div>
+    <div class="ele loop" style="width: 18px; left: 155px; top: 243px;"><img src="img/006.png"/></div>
+    <div class="ele loop" style="width: 18px; left: 172px; top: 243px;"><img src="img/007.png"/></div>
+    <div class="ele loop" style="width: 18px; left: 190px; top: 243px;"><img src="img/008.png"/></div>
+    <div class="ele loop" style="width: 18px; left: 208px; top: 243px;"><img src="img/009.png"/></div>
+    <div class="ele intro" style="width: 80px; left: 30px; bottom: 120px;"><img src="img/003.png"/></div>
+    <div class="ele moving1 random" style="width: 50px; left: 50px; top: 150px;"><img src="img/005.png"/></div>
+    <div class="ele moving2 random" style="width: 50px; right: 30px; top: 260px;"><img src="img/010.png"/></div>
+    <div class="ele moving3 random" style="width: 60px; left: 0; bottom: 360px;"><img src="img/011.png"/></div>
+    <div class="ele roll" style="width: 80px; left: 150px; top: 485px;"><img src="img/012.png"/></div>
+    <div class="ele moving4 random" style="width: 120px; left: 165px; bottom: 120px;"><img src="img/013.png"/></div>
+</div>
+<div class="bar"><img src="img/014.png" width="220" /></div>
+<audio id="m" autoplay="autoplay" loop="loop" src="bg1.mp3"></audio>
+
+<script>
+    //
+    var media = document.getElementById("m");
+    document.addEventListener('WeixinJSBridgeReady', function () {
+        media.play()
+    });
+    //
+    $(function () {
+        //
+        $(".loop").each(function (i) {
+            $(this).css("animation-delay", i * 200 + "ms")
+        });
+        $(".random").each(function () {
+            $(this).css("animation-delay", Math.round(Math.random() * 5000) + "ms")
+        });
+        // //
+        $("#musicSwitch").click(function () {
+            $(this).toggleClass("m-motion");
+            if (media.paused) media.play();
+            else media.pause();
+        });
+        //
+        $(window).resize(function () {
+            var ww = $(this).width(), wh = $(this).height();
+            var pw = $('.app-body').width(), ph = $('.app-body').height();
+            var flip = wh < ww && false;
+            var deg = flip ? '90deg' : '0';
+            var ratio = flip ? Math.min(ww / ph, wh / pw) : Math.min(ww / pw, wh / ph);
+            $('.app-body').css({
+                top: Math.round((wh - ph) / 2),
+                left: Math.round((ww - pw) / 2),
+                transform: 'rotate(' + deg + ') scale(' + ratio + ')'
+            });
+        }).resize();
+    });
+</script>
+</body>
+</html>
