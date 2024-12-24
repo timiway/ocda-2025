@@ -15,6 +15,10 @@
 <body>
 <div class="app-body">
     <div id="musicSwitch" class="m-btn"></div>
+    <div class="ele intro1 intro" style="width: 390px; left: 0; top: 30px;"></div>
+    <div class="ele intro2 intro" style="width: 190px; left: 95px; top: 60px;"><img src="img/016.png"/></div>
+    <div class="ele roll intro" style="width: 80px; left: 150px; top: 495px;"><img src="img/012.png"/></div>
+    <div class="ele intro3 intro" style="width: 80px; left: 30px; bottom: 120px;"><img src="img/003.png"/></div>
     <div class="ele loop2 random" style="width: 90px; left: -20px; top: 50px;"><img src="img/001.png"/></div>
     <div class="ele loop2 random" style="width: 160px; right: -60px; top: -40px;"><img src="img/002.png"/></div>
     <div class="ele loop2 random" style="width: 65px; right: 60px; top: 430px;"><img src="img/004.png"/></div>
@@ -22,11 +26,9 @@
     <div class="ele loop" style="width: 18px; left: 172px; top: 243px;"><img src="img/007.png"/></div>
     <div class="ele loop" style="width: 18px; left: 190px; top: 243px;"><img src="img/008.png"/></div>
     <div class="ele loop" style="width: 18px; left: 208px; top: 243px;"><img src="img/009.png"/></div>
-    <div class="ele intro" style="width: 80px; left: 30px; bottom: 120px;"><img src="img/003.png"/></div>
     <div class="ele moving1 random" style="width: 50px; left: 50px; top: 150px;"><img src="img/005.png"/></div>
     <div class="ele moving2 random" style="width: 50px; right: 30px; top: 260px;"><img src="img/010.png"/></div>
     <div class="ele moving3 random" style="width: 60px; left: 0; bottom: 360px;"><img src="img/011.png"/></div>
-    <div class="ele roll" style="width: 80px; left: 150px; top: 485px;"><img src="img/012.png"/></div>
     <div class="ele moving4 random" style="width: 120px; left: 165px; bottom: 120px;"><img src="img/013.png"/></div>
 </div>
 <div class="bar"><img src="img/014.png" width="220" /></div>
@@ -41,7 +43,10 @@
     //
     $(function () {
         //
-        $(".loop").each(function (i) {
+        $(".intro").each(function (i) {
+            $(this).delay(i * 800).fadeIn(400)
+        });
+        $(".loop").delay(2000).fadeIn(400).each(function (i) {
             $(this).css("animation-delay", i * 200 + "ms")
         });
         $(".random").each(function () {
