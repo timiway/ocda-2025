@@ -41,7 +41,7 @@ html, body { height: 100%; background-color: #e70013; }
     from { transform: scaleX(-1); }
 }
 @keyframes key-loop {
-    10% { transform: scale(1); opacity: 1 }
+    10% { transform: scale(1); }
     25% { transform: scale(1.3); }
     50% { transform: scale(1); }
 }
